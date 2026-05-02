@@ -135,14 +135,6 @@ docker compose up -d --build app
 
 `RERANK_RELATIVE_THRESHOLD=0.8` keeps every reranked chunk whose score is at least 80% of the best positive rerank score. This is a relative threshold because cross-encoder rerank scores are not percentages.
 
-## Tests
-
-```bash
-pytest
-```
-
-The tests cover pure application logic and avoid model downloads.
-
 ## Logs
 
 Application logs are written to:
