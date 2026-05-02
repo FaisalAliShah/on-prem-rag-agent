@@ -1,0 +1,50 @@
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+env/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+logs/
+*.log
+
+# Generated RAG state
+storage/faiss/
+storage/bm25/
+storage/metadata/
+DOCUMENTS_INGESTED.md
+
+# Uploaded/source documents and processed artifacts
+data/raw/*
+!data/raw/.gitkeep
+data/processed/
+
+# Local model/cache data
+hf_cache/
+.cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Docker override files
+docker-compose.override.yml

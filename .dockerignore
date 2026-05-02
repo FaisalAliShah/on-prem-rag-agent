@@ -1,0 +1,15 @@
+.git
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.env
+.venv
+venv
+storage/faiss/*
+storage/bm25/*
+storage/metadata/*
+.DS_Store
+.ipynb_checkpoints
+.pytest_cache
+
