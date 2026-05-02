@@ -2,6 +2,8 @@
 
 Local RAG service with document ingestion, FAISS dense retrieval, BM25 sparse retrieval, hybrid fusion, cross-encoder reranking, and Ollama answer generation.
 
+For a full feature breakdown and production-readiness notes, see [PROJECT_FUNCTIONALITY.md](PROJECT_FUNCTIONALITY.md).
+
 ## Stack
 
 - FastAPI for HTTP endpoints
