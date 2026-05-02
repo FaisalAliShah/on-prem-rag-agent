@@ -30,7 +30,10 @@ services:
       - ./DOCUMENTS_INGESTED.md:/app/DOCUMENTS_INGESTED.md
       - hf_cache:/root/.cache/huggingface
     depends_on:
-      - ollama
+      ollama:
+        condition: service_healthy
+      ollama-model:
+        condition: service_completed_successfully
     healthcheck:
       test: ["CMD-SHELL", "python -c \"import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=5).read()\""]
       interval: 30s
@@ -77,6 +80,21 @@ services:
       retries: 3
       start_period: 20s
     restart: unless-stopped
+
+  ollama-model:
+    image: ollama/ollama:latest
+    container_name: ollama_model_pull
+    environment:
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen2.5:0.5b}
+      OLLAMA_HOST: http://ollama:11434
+    volumes:
+      - ollama_data:/root/.ollama
+    depends_on:
+      ollama:
+        condition: service_healthy
+    entrypoint: ["/bin/sh", "-c"]
+    command: ["ollama pull \"$${OLLAMA_MODEL}\""]
+    restart: "no"
 
   qdrant:
     image: qdrant/qdrant:latest

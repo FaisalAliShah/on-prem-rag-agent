@@ -19,11 +19,7 @@ cp .env.example .env
 docker compose up --build
 ```
 
-Pull the default local model:
-
-```bash
-docker exec -it ollama ollama pull qwen2.5:0.5b
-```
+Docker Compose starts Ollama and automatically pulls `OLLAMA_MODEL` into the `ollama_data` volume on first run.
 
 Place `.txt`, `.md`, or `.pdf` files in:
 
@@ -131,10 +127,9 @@ OLLAMA_NUM_CTX=1024
 OLLAMA_NUM_PREDICT=256
 ```
 
-Then pull the model and restart the API:
+Then restart the API. Docker Compose will pull the configured model if it is missing:
 
 ```bash
-docker exec -it ollama ollama pull qwen2.5:0.5b
 docker compose up -d --build app
 ```
 
