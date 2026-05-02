@@ -41,7 +41,6 @@ class Settings(BaseSettings):
     qdrant_collection: str = Field(default="rag_chunks", alias="QDRANT_COLLECTION")
 
     raw_data_dir: Path = Field(default=Path("data/raw"), alias="RAW_DATA_DIR")
-    processed_data_dir: Path = Field(default=Path("data/processed"), alias="PROCESSED_DATA_DIR")
     faiss_index_dir: Path = Field(default=Path("storage/faiss"), alias="FAISS_INDEX_DIR")
     bm25_index_dir: Path = Field(default=Path("storage/bm25"), alias="BM25_INDEX_DIR")
     metadata_dir: Path = Field(default=Path("storage/metadata"), alias="METADATA_DIR")

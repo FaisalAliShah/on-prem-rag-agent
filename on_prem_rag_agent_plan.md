@@ -390,8 +390,7 @@ on-prem-rag-agent/
 │       └── logging.py
 │
 ├── data/
-│   ├── raw/
-│   └── processed/
+│   └── raw/
 │
 ├── storage/
 │   ├── faiss/
@@ -447,7 +446,6 @@ QDRANT_COLLECTION=rag_chunks
 
 # Storage paths
 RAW_DATA_DIR=data/raw
-PROCESSED_DATA_DIR=data/processed
 FAISS_INDEX_DIR=storage/faiss
 BM25_INDEX_DIR=storage/bm25
 METADATA_DIR=storage/metadata
